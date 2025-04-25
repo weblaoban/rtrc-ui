@@ -11,6 +11,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "main": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.mjs"
@@ -18,7 +19,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "vue-tsc -b && tsc && vite build",
     "preview": "vite preview",
     "pub": "pnpm version patch && pnpm run build && pnpm publish --no-git-checks --access public --registry https://registry.npmjs.org/"
   },
