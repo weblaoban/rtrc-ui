@@ -158,7 +158,7 @@
 </template>
 <script setup>
 defineOptions({
-	name: 'rtrc-select-date'
+	name: 'RtrcSelectDate'
 })
 import dayjs from "dayjs";
 import {ref, computed, onMounted, nextTick, watch} from 'vue'

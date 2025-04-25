@@ -2,6 +2,9 @@
 import QRCode from 'qrcode'
 import { nextTick, onMounted, ref, watch } from 'vue'
 
+defineOptions({
+	name: 'GenQrcode'
+})
 const props = defineProps({
 	// 二维码存储内容
 	qrUrl: {
