@@ -12,6 +12,7 @@
   },
   "main": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "style": "dist/style.css",
   "exports": {
     ".": {
       "import": "./dist/index.mjs"
