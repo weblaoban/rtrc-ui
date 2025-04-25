@@ -60,8 +60,9 @@
 							 @click="setSelect(item)"
 					
 					>
+<!--						多选列-->
 						<div class="color-hex-909399 text-18px rounded-full m-auto
-								 h-24px" v-if="validateSelectedGroup(item)">
+								 h-24px" v-if="validateSelectedGroup(item)" @click="cancelSelect(item)">
 							<div class="mt-2px w-20px h-20px m-auto rounded-4px color-white" :style="`background:${selectedBg}`">
 								<svg style="fill:white" version="1.1" xmlns="http://www.w3.org/2000/svg"
 										 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
