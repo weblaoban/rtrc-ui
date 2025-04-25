@@ -19,7 +19,7 @@
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
-    "publish": "pnpm version patch && pnpm run build && pnpm publish --no-git-checks --access public --registry https://registry.npmjs.org/"
+    "pub": "pnpm version patch && pnpm run build && pnpm publish --no-git-checks --access public --registry https://registry.npmjs.org/"
   },
   "dependencies": {
     "dayjs": "^1.11.13",
