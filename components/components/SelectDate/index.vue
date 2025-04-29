@@ -458,6 +458,11 @@ watch(currentDay, (newValue) => {
 	console.log(newValue)
 	emits("update:modelValue", newValue);
 });
+watch(props.modelValue,(newValue) => {
+	if (newValue) {
+		emits("update:modelValue", newValue);
+	}
+})
 </script>
 <style>
 .bg-white {
