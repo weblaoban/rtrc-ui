@@ -57,7 +57,6 @@
 							 style="width: 14%"
 							 v-for="(item,index) in rowTargetList"
 							 :key="index"
-							 @click="setSelect(item)"
 					
 					>
 <!--						多选列-->
@@ -71,7 +70,8 @@
 	c5.3,0,9.9-3.9,11.6-5.5c0,0,0,0,0.1,0l133.7-134.4C364.1,196.9,364.1,194.4,362.6,192.9z"></path></svg>
 							</div>
 						</div>
-						<div v-else>
+						<div v-else
+								 @click="setSelect(item)">
 							<div
 									class="mt-2px w-20px h-20px m-auto box-border border-1px border-hex-ccc border-solid rounded-4px"></div>
 						</div>
@@ -185,7 +185,7 @@ const props = defineProps({
 		default: '#456EC2'
 	}
 });
-const emits = defineEmits(["onChange", '"update:modelValue"']);
+const emits = defineEmits(["onChange", "update:modelValue"]);
 
 const currentDay = ref(null);
 const currentDayText = ref(null);
@@ -420,7 +420,6 @@ const setCurDay = (option, init = false) => {
 				currentDay.value = currentDay.value ? [...currentDay.value, dayjs(option.dateText)] : [dayjs(option.dateText)]
 			}
 		} else {
-			
 			let date = dayjs(option.dateText)
 			let dateText = date.format("YYYY-MM-DD");
 			currentDay.value = date;
@@ -455,12 +454,11 @@ watch(currentDay, (newValue) => {
 		}
 	}
 	emits("onChange", "date", newValue);
-	console.log(newValue)
 	emits("update:modelValue", newValue);
 });
-watch(props.modelValue,(newValue) => {
-	if (newValue) {
-		emits("update:modelValue", newValue);
+watch(()=>props.modelValue,(newValue,oldValue) => {
+	if(JSON.stringify(newValue) !== JSON.stringify(oldValue)){
+		setCurDay(newValue,true)
 	}
 })
 </script>
